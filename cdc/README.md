@@ -51,6 +51,10 @@ uint16_t cdc_send(const uint8_t *buf, uint16_t len);
 - `cdc_send()` transmits up to 64 bytes in one call and returns the
   number of bytes actually sent, or 0 if the IN buffer is busy. If
   more than 64 bytes are offered, only the first 64 are sent.
+  - If `len == 0`, no data is transmitted. Instead, the function
+    returns the number of bytes that could be accepted right now
+    (0 if the IN buffer is busy, 64 otherwise). This lets the caller
+    check for available space before committing to a send.
 
 The `main()` in the source file shows the expected pattern: drive
 `cdc_poll()` every iteration, then try `cdc_recv` / `cdc_send`.
