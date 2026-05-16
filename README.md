@@ -51,6 +51,9 @@ xc32-bin2hex out.elf
 
 Flash the resulting `.hex` with MPLAB IPE or your programmer of choice.
 
+The Dockerfile at https://github.com/paijp/mplabx can be used to build
+in a containerized environment.
+
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE) for the full text.
